@@ -499,18 +499,25 @@ static void bt_handle_get_settings(Bt* bt, BtMessage* message) {
     *message->data.settings = bt->bt_settings;
 }
 
-static void bt_handle_set_settings(Bt* bt, BtMessage* message) {
-    bt->bt_settings = *message->data.csettings;
-    furi_hal_bt_set_central_mode(bt->bt_settings.central_mode);
-    bt_apply_settings(bt);
-    bt_settings_save(&bt->bt_settings);
-}
-
 static void bt_handle_reload_keys_settings(Bt* bt) {
     bt_load_keys(bt);
     bt_load_settings(bt);
     furi_hal_bt_set_central_mode(bt->bt_settings.central_mode);
     bt_start_application(bt);
+}
+
+static void bt_handle_set_settings(Bt* bt, BtMessage* message) {
+    bool central_mode_changed = (bt->bt_settings.central_mode != message->data.csettings->central_mode);
+
+    bt->bt_settings = *message->data.csettings;
+    furi_hal_bt_set_central_mode(bt->bt_settings.central_mode);
+    bt_apply_settings(bt);
+    bt_settings_save(&bt->bt_settings);
+
+    if(central_mode_changed) {
+        FURI_LOG_I(TAG, "Central mode changed, reloading stack");
+        bt_handle_reload_keys_settings(bt);
+    }
 }
 
 static void bt_init_keys_settings(Bt* bt) {
