@@ -40,7 +40,7 @@
  * Maximum number of simultaneous connections that the device will support.
  * Valid values are from 1 to 8
  */
-#define CFG_BLE_NUM_LINK 2
+#define CFG_BLE_NUM_LINK 4
 
 /**
  * Maximum number of Services that can be stored in the GATT database.
@@ -181,7 +181,7 @@
  * for a CC/CS event, In that case, the notification TL_BLE_HCI_ToNot() is called to indicate
  * to the application a HCI command did not receive its command event within 30s (Default HCI Timeout).
  */
-#define CFG_TLBLE_EVT_QUEUE_LENGTH 5
+#define CFG_TLBLE_EVT_QUEUE_LENGTH 10
 /**
  * This parameter should be set to fit most events received by the HCI layer. It defines the buffer size of each element
  * allocated in the queue of received events and can be used to optimize the amount of RAM allocated by the Memory Manager.
