@@ -578,7 +578,7 @@ bool gap_init(
     gap->command_queue = furi_message_queue_alloc(8, sizeof(GapCommand));
 
     // Thread configuration
-    gap->thread = furi_thread_alloc_ex("BleGapDriver", 1024, gap_app, gap);
+    gap->thread = furi_thread_alloc_ex("BleGapDriver", 2048, gap_app, gap);
     furi_thread_start(gap->thread);
 
     // Set initial state
