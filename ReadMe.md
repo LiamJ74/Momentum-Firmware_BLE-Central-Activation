@@ -1,12 +1,13 @@
 # Custom Firmware for Flipper Zero
 
-This is a custom firmware for the Flipper Zero device. It is a fork designed to provide enhanced features and customization options.
+This is a custom firmware for the Flipper Zero device, designed to push the boundaries of what's possible while maintaining stability and ease of use.
 
 ## Features
 
-- **Feature-rich**: Includes many third-party apps and features.
-- **Stable**: Focused on providing a stable user experience.
-- **Customizable**: Extensive customization options for UI and behavior.
+*   **Enhanced Customization**: Change animations, icons, main menu layout, and more with the Asset Packs system.
+*   **Advanced Tools**: Includes powerful applications like Bad-Keyboard, BLE Spam, and enhanced Sub-GHz capabilities.
+*   **Improved UI**: Redesigned interface elements for a smoother user experience.
+*   **Extended Functionality**: Broader protocol support and additional JavaScript API features.
 
 ## Installation
 
@@ -30,4 +31,6 @@ $ ./fbt updater_package
 
 ## Credits
 
-Based on the work of the Flipper Devices team and various community contributors.
+This firmware is a fork of **Momentum Firmware**. We gratefully acknowledge the Momentum team for their extensive work, innovation, and contributions to the Flipper Zero community.
+
+Also based on the work of the Flipper Devices team (Official Firmware) and the Unleashed Firmware team.
